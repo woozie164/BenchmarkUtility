@@ -5,6 +5,7 @@
 #include <ctime>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 
 struct BenchmarkResult
@@ -21,6 +22,27 @@ struct BenchmarkResult
 	float stdDeviationWallTime;
 	float varianceWallTime;
 };
+
+static 
+std::ostream& operator <<(std::ostream& os, const BenchmarkResult& result)
+{
+    using namespace std;
+    os << "-- CPU Time (nanoseconds) --"                        << endl;
+    os << "Average: "            << result.avgCPUTime           << endl;
+    os << "Min: "                << result.minCPUTime           << endl;
+    os << "Max: "                << result.maxCPUTime           << endl;
+    os << "Variance: "           << result.varianceCPUTime      << endl;
+    os << "Standard deviation: " << result.stdDeviationCPUTime  << endl;
+
+    os << "-- Wall Time (nanoseconds) --"                       << endl;
+    os << "Average: "            << result.avgWallTime          << endl;
+    os << "Min: "                << result.minWallTime          << endl;
+    os << "Max: "                << result.maxWallTime          << endl;
+    os << "Variance: "           << result.varianceWallTime     << endl;
+    os << "Standard deviation: " << result.stdDeviationWallTime << endl;
+
+    return os;
+}
 
 // Runs the function f multiple times and returns performance data.
 // Usage: BenchmarkResult result = benchmark( std::bind(foo, 1, 2) );

@@ -8,7 +8,6 @@ float foo( int x, float y )
 	return x + y;
 }
 
-
 void V1(int iterations)
 {	
 	vector<float> cTimes( iterations );
@@ -65,6 +64,18 @@ void main()
 
 	cout << result4.avgCPUTime << endl;
 	cout << result4.avgWallTime << endl;
+
+    BenchmarkResult result5 = benchmark( []() {
+        cout << "hello world" << "\n";
+    }, 1000 );
+
+    BenchmarkResult result6 = benchmark( []() {
+        cout << "hello world" << endl;
+    }, 1000 );
+
+    // Pretty print the results
+    cout << result5 << endl;
+    cout << result6 << endl;
 
 	char c;
 	cin >> c;
