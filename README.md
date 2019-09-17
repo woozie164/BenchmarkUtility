@@ -18,3 +18,8 @@ BenchmarkResult result5 = benchmark( []() {
 	cout << "hello world" << "\n";
 }, 1000 );
 ```
+
+### Calling methods
+```C++
+benchmark(std::bind(&Vector::clear_slow, &v1));	
+```
