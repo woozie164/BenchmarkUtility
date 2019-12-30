@@ -19,7 +19,7 @@ BenchmarkResult result5 = benchmark( []() {
 }, 1000 );
 ```
 
-### Calling methods
+### Calling static methods
 ```C++
 benchmark(std::bind(&Vector::clear_slow, &v1));	
 ```
